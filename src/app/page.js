@@ -31,27 +31,123 @@ const navItems = [
 const insights = [
   {
     category: "Law Firm Strategy",
-    title: "[Título del artículo — Law Firm Strategy]",
-    date: "[Fecha]",
-    read: "[X] min",
+    title: "¿Crecer, integrarse o reducirse? La pregunta que se están haciendo las firmas de abogados",
+    date: "Abril 2026",
+    read: "8 min",
   },
   {
-    category: "AI & Legal Industry",
-    title: "[Título del artículo — AI & Legal Industry]",
-    date: "[Fecha]",
-    read: "[X] min",
+    category: "Law Firm Strategy",
+    title: "El reloj de arena: por qué el mercado legal chileno no crecerá hacia el medio",
+    date: "Abril 2026",
+    read: "9 min",
   },
   {
-    category: "Legal Market LATAM",
-    title: "[Título del artículo — Legal Market LATAM]",
-    date: "[Fecha]",
-    read: "[X] min",
+    category: "Law Firm Strategy",
+    title: "Modernización del modelo operativo y de costos en las firmas de abogados en 2026",
+    date: "Abril 2026",
+    read: "10 min",
+  },
+  {
+    category: "Legal Education",
+    title: "¿Cómo formamos a los asociados junior? ¿Una pregunta sin respuesta?",
+    date: "Abril 2026",
+    read: "9 min",
+  },
+  {
+    category: "Law Firm Strategy",
+    title: "La inflación de socios: cuando el título deja de significar poder",
+    date: "Abril 2026",
+    read: "8 min",
+  },
+  {
+    category: "Legal Education",
+    title: "A los 30, el abogado que no decide ya decidió",
+    date: "Abril 2026",
+    read: "7 min",
+  },
+  {
+    category: "Law Firm Strategy",
+    title: "El ego del abogado: cuando salvar la República se volvió un problema de personalidad",
+    date: "Abril 2026",
+    read: "8 min",
   },
   {
     category: "Governance",
-    title: "[Título del artículo — Governance]",
-    date: "[Fecha]",
-    read: "[X] min",
+    title: "Gerentas en las firmas de abogados. El cargo existe. El poder, no.",
+    date: "Marzo 2026",
+    read: "7 min",
+  },
+  {
+    category: "Law Firm Strategy",
+    title: "La industria de los rankings legales: una verdad incómoda",
+    date: "Marzo 2026",
+    read: "8 min",
+  },
+  {
+    category: "Governance",
+    title: "Los 15 problemas entre socios que casi todas las firmas tienen, pero de los que nadie quiere hablar",
+    date: "Marzo 2026",
+    read: "10 min",
+  },
+  {
+    category: "Legal Market LATAM",
+    title: "Mercado Libre y la industria legal: de la intermediación a la infraestructura",
+    date: "Febrero 2026",
+    read: "9 min",
+  },
+  {
+    category: "Law Firm Strategy",
+    title: "La firma que dice ser familia",
+    date: "Febrero 2026",
+    read: "6 min",
+  },
+  {
+    category: "Legal Education",
+    title: "El asociado que nunca debió ser abogado",
+    date: "Febrero 2026",
+    read: "7 min",
+  },
+  {
+    category: "Law Firm Strategy",
+    title: "Cuando el boom se acaba y el socio se queda",
+    date: "Febrero 2026",
+    read: "7 min",
+  },
+  {
+    category: "In-House & GC Strategy",
+    title: "Cuando el Gerente Legal es el verdadero riesgo",
+    date: "Febrero 2026",
+    read: "8 min",
+  },
+  {
+    category: "Legal Education",
+    title: "¿Estás pensando estudiar un Máster en Derecho? Mejor vuelve a pensarlo",
+    date: "Febrero 2026",
+    read: "8 min",
+  },
+  {
+    category: "Law Firm Strategy",
+    title: "¿Cómo diferenciarse en un mercado legal tan competitivo?",
+    date: "Febrero 2026",
+    read: "7 min",
+  },
+  {
+    category: "Law Firm Strategy",
+    title: "Socios caros, socios baratos y socios indispensables",
+    date: "Febrero 2026",
+    read: "8 min",
+  },
+  {
+    category: "Law Firm Strategy",
+    title: "La compensación mata más firmas que la competencia",
+    date: "Febrero 2026",
+    read: "9 min",
+  },
+  {
+    category: "AI & Legal Industry",
+    title: "La movida de Carey y su ingreso en Magnar AI",
+    date: "Enero 2026",
+    read: "8 min",
   },
 ];
 
@@ -398,7 +494,7 @@ export default function Page() {
           {/* Category pills */}
           <FadeIn delay={0.1}>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 40 }}>
-              {["Todos", "Law Firm Strategy", "AI & Legal Industry", "Legal Market LATAM", "Governance", "Future of Legal Services", "Legal Education"].map((cat, i) => (
+              {["Todos", "Law Firm Strategy", "AI & Legal Industry", "Legal Market LATAM", "Governance", "In-House & GC Strategy", "Legal Education", "Future of Legal Services"].map((cat, i) => (
                 <span key={cat} style={{
                   fontFamily: "'DM Sans', sans-serif", fontSize: 12, padding: "8px 18px", letterSpacing: "0.04em",
                   border: `1px solid ${i === 0 ? COLORS.blueDark : COLORS.grayMuted}`,

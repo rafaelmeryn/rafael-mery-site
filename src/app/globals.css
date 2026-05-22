@@ -122,6 +122,9 @@ textarea:focus {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
   }
+  .grid-3col {
+    grid-template-columns: 1fr !important;
+  }
 }
 @media (min-width: 769px) {
   .desktop-nav {

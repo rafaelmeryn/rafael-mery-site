@@ -31,6 +31,55 @@ const navItems = [
 
 const insights = [
   {
+    category: "In-House & GC Strategy",
+    title: "Del abogado al arquitecto de decisiones: el nuevo rol del Gerente Legal",
+    date: "Mayo 2026",
+    read: "10 min",
+    slug: "abogado-arquitecto-decisiones",
+  },
+  {
+    category: "Legal Education",
+    title: "Lo que Suits le hizo a la abogacía",
+    date: "Mayo 2026",
+    read: "7 min",
+    slug: "suits-abogacia",
+  },
+  {
+    category: "AI & Legal Industry",
+    title: "Harvey: el caballo de Troya de USD 11.000 millones",
+    date: "Mayo 2026",
+    read: "8 min",
+    slug: "harvey-caballo-troya",
+  },
+  {
+    category: "AI & Legal Industry",
+    title: "Claude for Legal: el día que Anthropic dejó de ser proveedor y se sentó a la mesa",
+    date: "Mayo 2026",
+    read: "8 min",
+    slug: "claude-for-legal",
+  },
+  {
+    category: "AI & Legal Industry",
+    title: "Harvey en Latinoamérica: lo que el acuerdo con ECIJA revela (y lo que esconde)",
+    date: "Mayo 2026",
+    read: "6 min",
+    slug: "harvey-latinoamerica",
+  },
+  {
+    category: "AI & Legal Industry",
+    title: "La ilusión del ahorro: ¿por qué la inteligencia artificial puede hacer más caro el departamento legal?",
+    date: "Mayo 2026",
+    read: "7 min",
+    slug: "ilusion-ahorro-ia",
+  },
+  {
+    category: "Future of Legal Services",
+    title: "El futuro del compliance: menos abogados, más científicos de datos",
+    date: "Mayo 2026",
+    read: "8 min",
+    slug: "futuro-compliance",
+  },
+  {
     category: "Law Firm Strategy",
     title: "¿Crecer, integrarse o reducirse? La pregunta que se están haciendo las firmas de abogados",
     date: "Abril 2026",
@@ -271,6 +320,8 @@ export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [email, setEmail] = useState("");
+  const [activeCategory, setActiveCategory] = useState("Todos");
+  const [showAllInsights, setShowAllInsights] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -469,7 +520,7 @@ export default function Page() {
             </p>
           </FadeIn>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+          <div className="grid-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {advisoryAreas.map((area, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="advisory-card" style={{
@@ -515,24 +566,21 @@ export default function Page() {
                   Insights & Análisis
                 </div>
                 <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 300, lineHeight: 1.15, color: COLORS.blueDeep }}>
-                  Pensamiento publicado
+                  Publicaciones
                 </h2>
               </div>
-              <span className="nav-link" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: COLORS.copper, letterSpacing: "0.06em", textTransform: "uppercase", cursor: "pointer" }}>
-                Ver todos los artículos →
-              </span>
             </div>
           </FadeIn>
 
           {/* Category pills */}
           <FadeIn delay={0.1}>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 40 }}>
-              {["Todos", "Law Firm Strategy", "AI & Legal Industry", "Legal Market LATAM", "Governance", "In-House & GC Strategy", "Legal Education", "Future of Legal Services"].map((cat, i) => (
-                <span key={cat} style={{
+              {["Todos", "Law Firm Strategy", "AI & Legal Industry", "Legal Market LATAM", "Governance", "In-House & GC Strategy", "Legal Education", "Future of Legal Services"].map((cat) => (
+                <span key={cat} onClick={() => { setActiveCategory(cat); setShowAllInsights(false); }} style={{
                   fontFamily: "'DM Sans', sans-serif", fontSize: 12, padding: "8px 18px", letterSpacing: "0.04em",
-                  border: `1px solid ${i === 0 ? COLORS.blueDark : COLORS.grayMuted}`,
-                  background: i === 0 ? COLORS.blueDark : "transparent",
-                  color: i === 0 ? COLORS.bg : COLORS.gray,
+                  border: `1px solid ${activeCategory === cat ? COLORS.blueDark : COLORS.grayMuted}`,
+                  background: activeCategory === cat ? COLORS.blueDark : "transparent",
+                  color: activeCategory === cat ? COLORS.bg : COLORS.gray,
                   cursor: "pointer", transition: "all 0.3s",
                 }}>
                   {cat}
@@ -543,8 +591,10 @@ export default function Page() {
 
           {/* Article cards */}
           <div style={{ display: "flex", flexDirection: "column" }}>
-            {insights.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
+            {(activeCategory === "Todos" ? insights : insights.filter(item => item.category === activeCategory))
+              .slice(0, showAllInsights ? undefined : 5)
+              .map((item, i) => (
+              <FadeIn key={item.slug} delay={i * 0.08}>
                 <Link href={`/insights/${item.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
                 <div className="insight-card" style={{ padding: "32px 0", borderBottom: `1px solid ${COLORS.grayMuted}` }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24, flexWrap: "wrap" }}>
@@ -566,6 +616,23 @@ export default function Page() {
               </FadeIn>
             ))}
           </div>
+          {/* Show more button */}
+          {(() => {
+            const filtered = activeCategory === "Todos" ? insights : insights.filter(item => item.category === activeCategory);
+            if (filtered.length > 5 && !showAllInsights) {
+              return (
+                <FadeIn>
+                  <div style={{ textAlign: "center", marginTop: 40 }}>
+                    <button onClick={() => setShowAllInsights(true)} className="cta-outline"
+                      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", padding: "12px 32px" }}>
+                      Ver más artículos ({filtered.length - 5} más)
+                    </button>
+                  </div>
+                </FadeIn>
+              );
+            }
+            return null;
+          })()}
         </div>
       </section>
 

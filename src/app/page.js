@@ -218,7 +218,7 @@ export default function Page() {
 
           <FadeIn delay={0.15}>
             <h1 style={{ fontSize: "clamp(36px, 5.5vw, 72px)", fontWeight: 300, lineHeight: 1.1, color: COLORS.blueDeep, maxWidth: 900, letterSpacing: "-0.01em" }}>
-              El mercado legal está cambiando más rápido de lo que la mayoría de sus líderes está dispuesta a admitir.
+              El mercado legal está cambiando más rápido de lo que la mayoría de sus líderes está dispuesto a admitir.
             </h1>
           </FadeIn>
 

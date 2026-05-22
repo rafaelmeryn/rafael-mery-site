@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 
 const COLORS = {
@@ -34,120 +35,152 @@ const insights = [
     title: "¿Crecer, integrarse o reducirse? La pregunta que se están haciendo las firmas de abogados",
     date: "Abril 2026",
     read: "8 min",
+    slug: "crecer-integrarse-reducirse",
+
   },
   {
     category: "Law Firm Strategy",
     title: "El reloj de arena: por qué el mercado legal chileno no crecerá hacia el medio",
     date: "Abril 2026",
     read: "9 min",
+    slug: "reloj-de-arena",
+
   },
   {
     category: "Law Firm Strategy",
     title: "Modernización del modelo operativo y de costos en las firmas de abogados en 2026",
     date: "Abril 2026",
     read: "10 min",
+    slug: "modernizacion-modelo-operativo",
+
   },
   {
     category: "Legal Education",
     title: "¿Cómo formamos a los asociados junior? ¿Una pregunta sin respuesta?",
     date: "Abril 2026",
     read: "9 min",
+    slug: "formacion-asociados-junior",
+
   },
   {
     category: "Law Firm Strategy",
     title: "La inflación de socios: cuando el título deja de significar poder",
     date: "Abril 2026",
     read: "8 min",
+    slug: "inflacion-de-socios",
+
   },
   {
     category: "Legal Education",
     title: "A los 30, el abogado que no decide ya decidió",
     date: "Abril 2026",
     read: "7 min",
+    slug: "a-los-30",
+
   },
   {
     category: "Law Firm Strategy",
     title: "El ego del abogado: cuando salvar la República se volvió un problema de personalidad",
     date: "Abril 2026",
     read: "8 min",
+    slug: "ego-del-abogado",
+
   },
   {
     category: "Governance",
     title: "Gerentas en las firmas de abogados. El cargo existe. El poder, no.",
     date: "Marzo 2026",
     read: "7 min",
+    slug: "gerentas-firmas",
+
   },
   {
     category: "Law Firm Strategy",
     title: "La industria de los rankings legales: una verdad incómoda",
     date: "Marzo 2026",
     read: "8 min",
+    slug: "rankings-legales",
+
   },
   {
     category: "Governance",
     title: "Los 15 problemas entre socios que casi todas las firmas tienen, pero de los que nadie quiere hablar",
     date: "Marzo 2026",
     read: "10 min",
+    slug: "15-problemas-socios",
+
   },
   {
     category: "Legal Market LATAM",
     title: "Mercado Libre y la industria legal: de la intermediación a la infraestructura",
     date: "Febrero 2026",
     read: "9 min",
+    slug: "mercado-libre-industria-legal",
+
   },
   {
     category: "Law Firm Strategy",
     title: "La firma que dice ser familia",
     date: "Febrero 2026",
     read: "6 min",
+    slug: "firma-familia",
+
   },
   {
     category: "Legal Education",
     title: "El asociado que nunca debió ser abogado",
     date: "Febrero 2026",
     read: "7 min",
-  },
-  {
-    category: "Law Firm Strategy",
-    title: "Cuando el boom se acaba y el socio se queda",
-    date: "Febrero 2026",
-    read: "7 min",
+    slug: "asociado-nunca-debio-ser-abogado",
+
   },
   {
     category: "In-House & GC Strategy",
     title: "Cuando el Gerente Legal es el verdadero riesgo",
     date: "Febrero 2026",
     read: "8 min",
+    slug: "gerente-legal-riesgo",
+
   },
   {
     category: "Legal Education",
     title: "¿Estás pensando estudiar un Máster en Derecho? Mejor vuelve a pensarlo",
     date: "Febrero 2026",
     read: "8 min",
+    slug: "master-derecho",
+
   },
   {
     category: "Law Firm Strategy",
     title: "¿Cómo diferenciarse en un mercado legal tan competitivo?",
     date: "Febrero 2026",
     read: "7 min",
+    slug: "como-diferenciarse",
+
   },
   {
     category: "Law Firm Strategy",
     title: "Socios caros, socios baratos y socios indispensables",
     date: "Febrero 2026",
     read: "8 min",
+    slug: "socios-caros-baratos-indispensables",
+
   },
   {
     category: "Law Firm Strategy",
     title: "La compensación mata más firmas que la competencia",
     date: "Febrero 2026",
     read: "9 min",
+    slug: "compensacion-mata-firmas",
+
   },
   {
     category: "AI & Legal Industry",
     title: "La movida de Carey y su ingreso en Magnar AI",
     date: "Enero 2026",
     read: "8 min",
+    slug: "carey-magnar-ai",
+
   },
 ];
 
@@ -512,6 +545,7 @@ export default function Page() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             {insights.map((item, i) => (
               <FadeIn key={i} delay={i * 0.08}>
+                <Link href={`/insights/${item.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
                 <div className="insight-card" style={{ padding: "32px 0", borderBottom: `1px solid ${COLORS.grayMuted}` }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24, flexWrap: "wrap" }}>
                     <div style={{ flex: 1, minWidth: 280 }}>
@@ -528,6 +562,7 @@ export default function Page() {
                     </div>
                   </div>
                 </div>
+                </Link>
               </FadeIn>
             ))}
           </div>

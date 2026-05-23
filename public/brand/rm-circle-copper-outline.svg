@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#B08D6E" stroke-width="1"/>
+  <circle cx="60" cy="60" r="52" fill="none" stroke="#B08D6E" stroke-width="0.3"/>
+  <text x="60" y="63" text-anchor="middle" dominant-baseline="central" font-family="'Cormorant Garamond', Georgia, serif" font-size="44" font-weight="400" fill="#B08D6E" letter-spacing="2">RM</text>
+</svg>

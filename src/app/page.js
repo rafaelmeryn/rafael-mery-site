@@ -694,7 +694,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
             {[
               { title: "Acompañamiento Estratégico de Firmas", format: "Programa continuo · Presencial o virtual", desc: "Trabajo sostenido con el liderazgo de la firma sobre posicionamiento, modelo de negocio, governance y decisiones críticas. No es una consultoría puntual: es pensamiento estratégico aplicado en el tiempo real de la organización." },
-              { title: "Mentoring para Socios & Asociados", format: "Sesiones individuales o grupales · Formato flexible", desc: "Acompañamiento en desarrollo de carrera para socios en transición y asociados con proyección de liderazgo. Estrategia profesional, construcción de práctica, posicionamiento y decisiones de trayectoria en firmas." },
+              { title: "Mentoring para Socios & Asociados", format: "Sesiones individuales · Formato flexible", desc: "Acompañamiento en desarrollo de carrera para socios en transición y asociados con proyección de liderazgo. Estrategia profesional, construcción de práctica, posicionamiento y decisiones de trayectoria en firmas." },
             ].map((prog, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div style={{ padding: 36, border: "1px solid rgba(176,141,110,0.2)", background: "rgba(255,255,255,0.03)", height: "100%" }}>
